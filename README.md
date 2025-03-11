@@ -7,19 +7,23 @@ Este projeto contém testes automatizados utilizando o **Cypress** para validar 
 - [Cypress](https://www.cypress.io/) - Framework de testes end-to-end
 - JavaScript - Linguagem utilizada para os testes
 - GitHub Actions - Para execução dos testes em CI/CD
+- [Mochawesome](https://www.npmjs.com/package/mochawesome) - Para geração de relatórios detalhados
 
 ## 📂 Estrutura do Projeto
 ```
 /testescypress
 │── cypress/
 │   ├── e2e/
-│   │   ├── loginTeste.cy.js  # Teste do site SauceDemo
-        ├── realizaCompraTeste.cy.js  # Teste do site SauceDemo
+│   │   ├── loginTeste.cy.js  # Testes do site SauceDemo
+        ├── realizacompraTeste.cy.js  # Testes do site SauceDemo
+    │── reports/
+        │── index.HTML
 │   ├── support/
 │   │   ├── commands.js      # Comandos customizados do Cypress
 │── cypress.config.js        # Configuração do Cypress
 │── package.json             # Dependências do projeto
 │── README.md                # Documentação do projeto
+        
 ```
 
 ## 🔧 Pré-requisitos
@@ -43,15 +47,30 @@ npx cypress run
 npx cypress open
 ```
 
+## 📊 Relatório de Testes
+O projeto utiliza **Mochawesome** para geração de relatórios detalhados sobre a execução dos testes.
+
+### Gerar Relatório
+Após rodar os testes, o relatório será gerado automaticamente na pasta `mochawesome-report`.
+Para visualizar o relatório em HTML, abra o arquivo:
+```
+mochawesome-report/mochawesome.html
+```
+
+Caso queira gerar o relatório manualmente, utilize:
+```bash
+npx cypress run --reporter mochawesome
+```
+
 ## 🛠 Configuração no GitHub Actions
 O projeto já possui um workflow configurado para executar os testes automaticamente no GitHub Actions sempre que houver um push ou pull request. O workflow está localizado em:
 ```
 .github/workflows/github_actions_cypress.yml
 ```
 
-
 ## 📄 Licença
 Este projeto está sob a licença MIT. Sinta-se livre para utilizá-lo e contribuir!
 
 ---
 
+🚀 **Mantenha seus testes sempre atualizados para garantir qualidade no desenvolvimento!**
