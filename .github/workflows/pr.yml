@@ -1,4 +1,4 @@
-name: Cypress Testes
+name: Cypress Tests
 
 on:
   push:
@@ -9,34 +9,25 @@ on:
       - main
 
 jobs:
-  test:
+  cypress-run:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout Code
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '20'
 
-      - name: Install Dependencies
+      - name: Install dependencies
         run: npm install
 
-      - name: Run Cypress Tests
-        run: npx cypress run
+      - name: Set Cypress permissions
+        run: chmod +x node_modules/.bin/cypress
 
-      - name: Upload Cypress Test Artifacts (Screenshots & Videos)
-        if: failure()
-        uses: actions/upload-artifact@v4
+      - name: Run Cypress tests
+        uses: cypress-io/github-action@v6
         with:
-          name: cypress-artifacts
-          path: cypress/reports
-          
-      - name: Upload Cypress Videos
-        if: failure()
-        uses: actions/upload-artifact@v4
-        with:
-          name: cypress-videos
-          path: cypress/reports/*/
+          build: npm run build
+          start: npm start
