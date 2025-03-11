@@ -15,7 +15,7 @@ Este projeto contém testes automatizados utilizando o **Cypress** para validar 
 │── cypress/
 │   ├── e2e/
 │   │  ├── loginTeste.cy.js  # Testes do site SauceDemo
-       ├── realizacompraTeste.cy.js  # Testes do site SauceDemo
+|   |  ├── realizacompraTeste.cy.js  # Testes do site SauceDemo
 │   ├── support/
 │   │   ├── commands.js      # Comandos customizados do Cypress
 │── cypress.config.js        # Configuração do Cypress
