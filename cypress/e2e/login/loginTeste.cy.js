@@ -8,7 +8,7 @@ describe('testes no site saucedemo', () => {
     cy.get('[data-test="password"]').type('secret_sauce')
     cy.get('#login-button').click()
 
-    // Validando que o login foi bem-sucedido e estamos na página correta
+    // Validando que o login  foi bem-sucedido e estamos na página correta
     cy.url().should('include', '/inventory.html')
     cy.get('.product_label').should('be.visible').and('contain.text', 'Products')
   })
