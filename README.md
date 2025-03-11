@@ -48,19 +48,6 @@ O projeto já possui um workflow configurado para executar os testes automaticam
 .github/workflows/github_actions_cypress.yml
 ```
 
-## 📜 Testes Implementados
-### **Login no SauceDemo**
-✅ Acessa a página inicial do SauceDemo
-✅ Realiza login com credenciais válidas
-✅ Realiza compra
-
-
-## ✨ Contribuição
-1. Faça um fork do repositório
-2. Crie uma branch para sua feature (`git checkout -b minha-feature`)
-3. Faça commit das suas alterações (`git commit -m 'Adicionando nova feature'`)
-4. Faça push para a branch (`git push origin minha-feature`)
-5. Abra um Pull Request
 
 ## 📄 Licença
 Este projeto está sob a licença MIT. Sinta-se livre para utilizá-lo e contribuir!
