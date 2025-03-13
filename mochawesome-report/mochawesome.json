@@ -1,0 +1,112 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-03-11T03:59:06.677Z",
+    "end": "2025-03-11T03:59:10.155Z",
+    "duration": 3478,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "38d32a83-f14f-4407-b704-ad982500b139",
+      "title": "",
+      "fullFile": "cypress\\e2e\\login\\realizaCompraTeste.cy.js",
+      "file": "cypress\\e2e\\login\\realizaCompraTeste.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "8c1efe4b-eb46-432b-a78f-527b3473fd73",
+          "title": "testes no site saucedemo",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Realiza login, valida itens no carrinho, preenche checkout, finaliza compra e valida confirmação",
+              "fullTitle": "testes no site saucedemo Realiza login, valida itens no carrinho, preenche checkout, finaliza compra e valida confirmação",
+              "timedOut": null,
+              "duration": 2624,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://www.saucedemo.com/v1');\ncy.get('[data-test=\"username\"]').type('standard_user');\ncy.get('[data-test=\"password\"]').type('secret_sauce');\ncy.get('#login-button').click();\ncy.get('.product_label').should('contain.text', 'Products');\n// Adicionando o primeiro item ao carrinho\ncy.get('#item_4_title_link > .inventory_item_name').click();\ncy.get('.btn_primary').click();\ncy.get('.inventory_details_back_button').click({\n  force: true\n});\n// Adicionando o segundo item ao carrinho\ncy.get('#item_0_title_link > .inventory_item_name').click();\ncy.get('.btn_primary').click();\ncy.get('.inventory_details_back_button').click({\n  force: true\n});\n// Adicionando o terceiro item ao carrinho\ncy.get('#item_1_title_link > .inventory_item_name').click();\ncy.get('.btn_primary').click();\ncy.get('.inventory_details_back_button').click({\n  force: true\n});\n// Acessando o carrinho\ncy.get('#shopping_cart_container').click();\n// Verificando os itens no carrinho\ncy.get('.cart_item').should('have.length', 3);\n// Verificando o primeiro item no carrinho\ncy.get('.cart_item').eq(0).find('.inventory_item_name').should('contain.text', 'Sauce Labs Backpack');\n// Verificando o segundo item no carrinho\ncy.get('.cart_item').eq(1).find('.inventory_item_name').should('contain.text', 'Sauce Labs Bike Light');\n// Verificando o terceiro item no carrinho\ncy.get('.cart_item').eq(2).find('.inventory_item_name').should('contain.text', 'Sauce Labs Bolt T-Shirt');\n// Clicando no botão de checkout para concluir a compra\ncy.get('.checkout_button').click();\n// Validando a página de informações de checkout\ncy.url().should('include', '/checkout-step-one');\ncy.get('.subheader').should('be.visible').and('contain.text', 'Checkout: Your Information');\n// Preenchendo os campos de checkout\ncy.get('[data-test=\"firstName\"]').type('Felipe').should('have.value', 'Felipe'); // Validando o campo First Name\ncy.get('[data-test=\"lastName\"]').type('Teste').should('have.value', 'Teste'); // Validando o campo Last Name\ncy.get('[data-test=\"postalCode\"]').type('06700287').should('have.value', '06700287'); // Validando o campo Postal Code\n// Clicando no botão de continuar\ncy.get('.cart_button').click();\n// Validando que a página de revisão da compra foi carregada\ncy.url().should('include', '/checkout-step-two');\ncy.get('.subheader').should('be.visible').and('contain.text', 'Checkout: Overview');\n// Clicando no botão de finalizar a compra\ncy.get('.cart_button').click();\n// Validando que a compra foi concluída com sucesso\ncy.url().should('include', '/checkout-complete');\ncy.get('.complete-header').should('contain.text', 'THANK YOU FOR YOUR ORDER');",
+              "err": {},
+              "uuid": "aa182081-9fb7-44fb-89e4-9bfe1bfce7cd",
+              "parentUUID": "8c1efe4b-eb46-432b-a78f-527b3473fd73",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "aa182081-9fb7-44fb-89e4-9bfe1bfce7cd"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2624,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reporterEnabled": "cypress-mochawesome-reporter, mocha-junit-reporter",
+        "mochaJunitReporterReporterOptions": {
+          "mochafile": "cypress/reports/junit/results-[hash].xml"
+        },
+        "cypressMochawesomeReporterReporterOptions": {
+          "charts": true,
+          "reportPageTitle": "relatorio de testes",
+          "embeddedScreenshots": true,
+          "inLineAssets": true,
+          "saveAllAttempts": false
+        }
+      },
+      "version": "6.2.0"
+    }
+  }
+}
